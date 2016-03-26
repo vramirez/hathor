@@ -3,7 +3,7 @@ from pyspark.ml.classification import NaiveBayes
 from pyspark.ml.feature import HashingTF, Tokenizer,RegexTokenizer
 from pyspark.sql import Row
 
-arch1 = sc.textFile("../eliana2.csv").map(lambda x:x.lower().split("&")[0])
+arch1 = sc.textFile("../eliana_2016.csv").map(lambda x:x.lower().split("&")[0])
 text1 = arch1.map(lambda x: Row(text = x))
 teibol = sqlContext.createDataFrame(text1)
 teibol.registerTempTable("tuits")
